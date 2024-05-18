@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=uqCJpH7b1riMwSMg3URbiHuKbrfxQeFi">
+        </script>
+    <style>
+        html,
+        body,
+        #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 百度地图logo */
+        .anchorBL,
+        .BMap_cpyCtrl {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script>
+         //  console.log(window.BMapGL)
+            var map = new BMapGL.Map('map', {
+                minZoom: 8,
+                maxZoom: 12,
+                mapType: BMAP_NORMAL_MAP
+            })
+            var point = new BMapGL.Point(107.87147, 31.086213);
+            map.centerAndZoom(point, 20)
+            map.enableScrollWheelZoom(true)
+            // 3d旋转
+            map.setHeading(30);
+            // 15度倾角
+            map.setTilt(15);
+            // var heading = 0;
+            // setInterval(()=>{
+            //     heading++;
+            //     map.setHeading(heading);
+            // },100);
+            // 地球模型
+            // map.setMapType(BMAP_EARTH_MAP)
+    </script>
+</body>
+
+</html>

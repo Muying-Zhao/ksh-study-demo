@@ -30,19 +30,19 @@
 <body>
     <div id="map"></div>
     <script>
-         //  console.log(window.BMapGL)
-            var map = new BMapGL.Map('map', {
-                minZoom: 8,
-                maxZoom: 12,
-                mapType: BMAP_NORMAL_MAP
-            })
-            var point = new BMapGL.Point(107.87147, 31.086213);
-            map.centerAndZoom(point, 20)
-            map.enableScrollWheelZoom(true)
-            // 3d旋转
-            map.setHeading(30);
-            // 15度倾角
-            map.setTilt(15);
+        //  console.log(window.BMapGL)
+        var map = new BMapGL.Map('map', {
+            minZoom: 8,
+            maxZoom: 12,
+            mapType: BMAP_NORMAL_MAP
+        })
+        var point = new BMapGL.Point(107.87147, 31.086213);
+        map.centerAndZoom(point, 20)
+        map.enableScrollWheelZoom(true)
+        // 3d旋转
+        map.setHeading(30);
+        // 15度倾角
+        map.setTilt(15);
             // var heading = 0;
             // setInterval(()=>{
             //     heading++;

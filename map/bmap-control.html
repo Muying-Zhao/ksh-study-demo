@@ -24,16 +24,17 @@
         .BMap_cpyCtrl {
             display: none;
         }
-         .BMap_stdMpZoom{
+
+        .BMap_stdMpZoom {
             display: block;
-         }
+        }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
     <script>
-        var map = new BMapGL.Map('map' ,{
+        var map = new BMapGL.Map('map', {
             minZoom: 8,
             maxZoom: 12,
             mapType: BMAP_NORMAL_MAP
@@ -56,8 +57,8 @@
         // 放大缩小
         map.addControl(zoomCtrl);
         map.addEventListener('zoomstrat', function () {
-                console.log(map.getZoom())
-            })
+            console.log(map.getZoom())
+        })
         map.addEventListener('zoomend', function () {
             console.log(map.getZoom())
         })

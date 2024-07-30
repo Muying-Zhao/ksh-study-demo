@@ -27,6 +27,10 @@
         .BMap_cpyCtrl {
             display: none;
         }
+
+        .box {
+            color: rgba(18, 76, 150, .5);
+        }
     </style>
 </head>
 
@@ -35,14 +39,14 @@
     <script>
         var map = initBMap()
         var data = initData()
-        setData(map,data)
+        setData(map, data)
         //初始化百度地图
         function initBMap() {
             // 通过mapv.js可以获取坐标
             // console.log(cityCenter)
             var cityCenter = mapv.utilCityCenter.getCenterByCityName('杭州')
             var map = initMap({
-                tilt:0,
+                tilt: 0,
                 center: [cityCenter.lng, cityCenter.lat],
                 zoom: 10,
                 style: snowStyle
@@ -59,17 +63,17 @@
                 '南宁', '西安', '银川', '兰州', '西宁', '乌鲁木齐', '成都', '贵阳', '昆明', '拉萨', '海口'
             ];
 
-            while(random--) {
+            while (random--) {
                 var cityCenter = mapv.utilCityCenter.getCenterByCityName(cities[parseInt(Math.random() * cities.length)])
                 data.push({
                     geometry: {
                         type: 'Point',
-                        coordinates: [cityCenter.lng-2+Math.random()*4, cityCenter.lat - 2 + Math.random() * 4]
+                        coordinates: [cityCenter.lng - 2 + Math.random() * 4, cityCenter.lat - 2 + Math.random() * 4]
                     },
-                    properties:{
-                        sales: Math.random()*100
+                    properties: {
+                        sales: Math.random() * 100
                     }
-                }) 
+                })
             }
             // 过滤掉小于五十的
             // data=data.filter(_=>_.properties.sales>50)
@@ -77,17 +81,17 @@
             return data
         }
         //   绘制数据源
-        function setData(map, data) { 
+        function setData(map, data) {
 
             // 1.生成mapvgl 视图 View
-            var view = new mapvgl.View({ map }) 
+            var view = new mapvgl.View({ map })
             //初始化intensity对象
-            var intensity=new mapvgl.Intensity({
-                min:0,
-                max:100,
-                minSize:5,
-                maxSize:30,
-                gradient:{
+            var intensity = new mapvgl.Intensity({
+                min: 0,
+                max: 100,
+                minSize: 5,
+                maxSize: 30,
+                gradient: {
                     0: 'rgb(25, 66, 102, 0.8)',
                     0.3: 'rgb(145, 102, 129, 0.8)',
                     0.7: 'rgb(210, 131, 137, 0.8)',
@@ -96,11 +100,11 @@
             })
             // 2.初始化mapvgl 的 PointLayer 对象
             var pointLayer = new mapvgl.PointLayer({
-                size:function(data){ 
+                size: function (data) {
                     // console.log(intensity.getSize(data.properties.sales))
                     return intensity.getSize(data.properties.sales)
                 },
-                color:function(data){
+                color: function (data) {
                     // console.log(data)
                     return intensity.getColor(data.properties.sales)
                 }

@@ -33,10 +33,10 @@
             map.centerAndZoom(point, 10)
             map.enableScrollWheelZoom(true)
         }
-        window.onload=function() {
-            var script= document.createElement('script')
+        window.onload = function () {
+            var script = document.createElement('script')
             // src里加上&callback=init，会去找init方法
-            script.src='https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=uqCJpH7b1riMwSMg3URbiHuKbrfxQeFi&callback=init'
+            script.src = 'https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=uqCJpH7b1riMwSMg3URbiHuKbrfxQeFi&callback=init'
             document.body.appendChild(script)
         }
     </script>
